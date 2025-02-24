@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musharaf Mubeen - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: black;
+      color: white;
+      height: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    
+    /* 🔥 Advanced Preloader */
+    #preloader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    }
+
+    /* Glowing Loading Text */
+    .loading-text {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00;
+      animation: pulse 1.5s infinite alternate;
+    }
+
+    
+    /* Progress Bar */
+    .progress-bar {
+      width: 60%;
+      max-width: 400px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+
+    /* Progress Animation */
+    .progress {
+      width: 0%;
+      height: 100%;
+      background: #00ff00;
+      animation: load 2s linear forwards;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes load {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    /* Hide Preloader */
+    .hide-loader {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    }
+
+
+    /* Navigation Bar - Horizontal at Top Right */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      padding: 10px 30px;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    nav a {
+      color: #00ff00;
+      font-size: 1.2rem;
+      text-decoration: none;
+      text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00d700;
+      transform: scale(1.1);
+      text-decoration: underline;
+    }
+
+    /* Container for the greeting and name */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      padding: 0 50px;
+      padding-top: 100px;
+      flex-wrap: wrap;
+      transition: all 0.5s ease;
+    }
+
+    /* Left Section */
+    .left {
+      max-width: 45%;
+      opacity: 0;
+      animation: fadeInLeft 1s forwards;
+      margin-left: 150px;
+    }
+
+    .greeting {
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .greeting span {
+      display: inline-block;
+      animation: wave 1.5s infinite;
+    }
+    /* Add animation to the waving emoji */
+    .wave-emoji {
+       display: inline-block;
+      animation: wave 1.5s infinite;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0); }
+      25% { transform: rotate(-15deg); }
+      50% { transform: rotate(15deg); }
+    }
+
+    .name {
+      font-size: 3rem;
+      margin: 10px 0;
+      color: #f1f1f1;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    }
+
+    .roles {
+      font-size: 2rem;
+      margin-top: 20px;
+      color: #00ff00;
+      text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .roles span {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      font-weight: 500;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 20px 40px;
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      transition: all 0.3s ease;
+    }
+
+    /* Section Titles */
+    h2 {
+      color: #00ff00;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+      font-size: 2.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    h2 span {
+      margin-left: 10px;
+      font-size: 2rem;
+    }
+
+     /* Right Section */
+     .right {
+      max-width: 45%;
+      opacity: 0;
+      animation: fadeInRight 1s forwards;
+    }
+    /* Right Section */
+    .right img {
+  width: 110%; /* Adjust to fit container */
+  max-width: 950px; /* Prevents image from becoming too big */
+  min-width: 450px; /* Prevents it from being too small */
+  border-radius: 50%; /* Keeps circular shape */
+  margin: 0 auto; /* Centers the image */
+  display: block;
+}
+
+
+    /* Animations */
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center; /* Center content */
+    text-align: center;
+    padding: 20px;
+    padding-top: 80px; /* Push content down */
+  }
+
+  .left, .right {
+    max-width: 100%;
+  }
+
+  .left {
+    padding: 20px;
+  }
+
+  .right img {
+    width: 100%; /* Ensures the image scales properly */
+    max-width: 400px; /* Prevents oversizing */
+    min-width: 250px; /* Prevents it from becoming too small */
+    border-radius: 50%;
+    margin: 0 auto; /* Centers properly */
+    display: block;
+  }
+
+  nav {
+    flex-direction: column;
+    top: 10px;
+    right: 10px;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  .greeting {
+    font-size: 1.8rem;
+  }
+
+  .name {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+
+  .roles {
+    font-size: 1.3rem;
+    margin-top: 10px;
+  }
+}
+
+
+  
+  </style>
+</head>
+<body>
+
+  <!-- 🔥 1️⃣ Advanced Preloader -->
+  <div id="preloader">
+    <p class="loading-text">Loading Portfolio...</p>
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#education">EDUCATION</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#certifications">CERTIFICATIONS</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+  <!-- Container for the greeting and name -->
+  <div class="container" id="home">
+    <!-- Left Section -->
+    <div class="left">
+      <div class="greeting">
+        Hi there! <span class="wave-emoji">👋</span>
+      </div>
+      <div class="name">I'm Musharaf Mubeen</div>
+      <div class="roles">
+        <span id="typing-text"></span>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right">
+      <img src="DP.png" alt="Musharaf Mubeen">
+    </div>
+  </div>
+  
+
+   <!-- 🔥 4️⃣ JavaScript to Hide Preloader -->
+  <script>
+    window.addEventListener("load", function () {
+      document.getElementById("preloader").classList.add("hide-loader");
+    });
+  </script>
+
+  <section id="about">
+    <div class="about-container">
+        <div class="about-card">
+            <h2 class="fade-in">About Me</h2>
+            <p class="slide-up">Hi! I'm Mubeen, a DevOps Engineer with expertise in cloud computing, automation, and scalable infrastructure. I specialize in optimizing CI/CD pipelines and building high-performance systems that drive innovation and enhance efficiency. Passionate about solving complex challenges, I focus on delivering results with technologies like Docker, Kubernetes, and AWS. I’m always eager to learn and collaborate on projects that push the boundaries of technology.</p>
+        </div>
+    </div>
+</section>
+
+
+  
+  <style>
+  #about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    background: transparent; /* Matches portfolio theme */
+}
+
+.about-container {
+    width: 100%;
+    max-width: 800px;
+    perspective: 1000px;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(6, 240, 73, 0.4);
+    transition: transform 0.5s ease-in-out;
+}
+
+.about-card:hover {
+    transform: rotateY(5deg) rotateX(5deg);
+}
+
+.about-card h2 {
+    font-size: 2rem;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.about-card p {
+    font-size: 1.2rem;
+    color: #f1f1f1;
+}
+
+
+   </style>
+
+  <section id="education">
+    <h2>EDUCATION</h2>
+    <div class="education-details">
+      <div class="background-image">
+        <h3>Mohamed Sathak A.J. College Of Engineering</h3>
+        <p><strong>Degree:</strong> Bachelor of Engineering (B.E) in Computer Science Engineering</p>
+        <p><strong>CGPA:</strong> 7.98</p>
+        <p><strong>Duration:</strong> 2020 - 2024</p>
+        <p><strong>Location:</strong> Siruseri OMR, Chennai, Tamil Nadu</p>
+        <hr />
+        <h3>Shanthinikethan Mat. Hr. Sec. School</h3>
+        <p><strong>Level:</strong> Higher Secondary Education (HSE)</p>
+        <p><strong>Highlights:</strong> Scored 100% in Computer Science</p>
+        <p><strong>Year:</strong> 2020</p>
+      </div>
+    </div>
+</section>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap');
+  
+    /* Section Styling */
+    section#education {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #000; /* Dark outer background */
+      color: #ffffff;
+      display: block; /* Ensure visibility */
+    }
+  
+    /* Heading Style */
+    section#education h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 40px;
+      font-weight: 600;
+      color: #00ff00;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 40px;
+    }
+  
+    /* Education Details Box */
+    .education-details {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7); /* Ensure contrast */
+    }
+  
+    /* Background Image */
+    .background-image {
+      background: url('IMG-20250222-WA0094 (1).jpg') no-repeat center center/cover; /* Add your background image URL here */
+      padding: 50px 20px;
+    }
+  
+    /* Text Styling */
+    .background-image h3, 
+    .background-image p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #f0f0f0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      margin-bottom: 12px;
+    }
+  
+    .background-image h3 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 15px;
+    }
+  
+    .background-image strong {
+      color: #00ff00;
+      font-weight: 700;
+    }
+  
+    /* Divider */
+    .background-image hr {
+      border: none;
+      border-top: 1px solid #00ff00;
+      margin: 20px 0;
+    }
+</style>
+  
+
+<section id="skills">
+    <h2>SKILLS</h2>
+    <div class="skills-list">
+        <!-- First row -->
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="icons8-docker-96.png" alt="Docker">
+                </div>
+                <p>Docker</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="Aws-Logo.png" alt="AWS">
+                </div>
+                <p>AWS</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="Linux-Logo.png" alt="Linux">
+                </div>
+                <p>Linux</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="Jenkins-Logo.png" alt="Jenkins">
+                </div>
+                <p>Jenkins</p>
+            </div>
+        </div>
+
+        <!-- Second row -->
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="JS-Logo.png" alt="JavaScript">
+                </div>
+                <p>JavaScript</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="Python-Logo.png" alt="Python">
+                </div>
+                <p>Python</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="S-Logo.png" alt="Scripting">
+                </div>
+                <p>Scripting (Bash, Python)</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="G-Logo.png" alt="Git">
+                </div>
+                <p>Version Control (Git, GitHub)</p>
+            </div>
+        </div>
+
+        <!-- Third row -->
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="K-Logo.png" alt="Kubernetes">
+                </div>
+                <p>Container Orchestration (Kubernetes)</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="icons8-networking-manager-100.png" alt="Networking">
+                </div>
+                <p>VLAN, NAT, ARP, DNS, DHCP, Basic Firewalls</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="icons8-web-development-100.png" alt="HTML, CSS">
+                </div>
+                <p>WEB DEVELOPMENT</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="icons8-puppet-100.png" alt="Automation">
+                </div>
+                <p>Automation (Puppet)</p>
+            </div>
+        </div>
+
+        <!-- Fourth row -->
+        <div class="skill-item">
+            <div class="skill-box">
+                <div class="skill-icon">
+                    <img src="icons8-mysql-logo-100.png" alt="SQL">
+                </div>
+                <p>SQL</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+  
+  <style>
+    section#skills {
+      text-align: center;
+      padding: 50px 0;
+      background-color: #121212; /* Dark background for high contrast */
+    }
+  
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Grid that adapts to screen size */
+      gap: 20px; /* Adjusted gap between boxes */
+      justify-items: center;
+      align-items: start; /* Align items to the top */
+    }
+  
+  
+    .skill-item {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .skill-box {
+      background-color: #111; /* Dark background */
+      padding: 20px;
+      width: 240px; /* Width adjusted for good proportions */
+      height: 240px; /* Square box */
+      border-radius: 15px; /* Smooth corners */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6), 0 10px 30px rgba(0, 0, 0, 0.3); /* High-level shadow */
+      text-align: center;
+      color: #fff;
+      transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease, border 0.3s ease;
+    }
+  
+    .skill-box:hover {
+      transform: translateY(-20px) scale(1.05) rotateY(10deg); /* 3D effect on hover */
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 15px 45px rgba(0, 0, 0, 0.4);
+      filter: brightness(1.2); /* Light up the box */
+    }
+  
+    .skill-icon img {
+      width: 70px; /* Larger logo for prominence */
+      height: 70px;
+      margin-bottom: 15px;
+    }
+  
+    .skill-box p {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #fff;
+    }
+  
+    /* Animation for each skill item */
+    @keyframes skillAnim {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .skill-item {
+      animation: skillAnim 1s ease-out forwards;
+      animation-delay: calc(0.1s * var(--i));
+    }
+  
+    /* Adjust animation delay based on skill index */
+    .skill-item:nth-child(1) {
+      --i: 1;
+    }
+    .skill-item:nth-child(2) {
+      --i: 2;
+    }
+    .skill-item:nth-child(3) {
+      --i: 3;
+    }
+    .skill-item:nth-child(4) {
+      --i: 4;
+    }
+    .skill-item:nth-child(5) {
+      --i: 5;
+    }
+    .skill-item:nth-child(6) {
+      --i: 6;
+    }
+    .skill-item:nth-child(7) {
+      --i: 7;
+    }
+    .skill-item:nth-child(8) {
+      --i: 8;
+    }
+    .skill-item:nth-child(9) {
+      --i: 9;
+    }
+  
+    /* Click effect - Green blinking or white outline */
+    .skill-box:active {
+      animation: clickEffect 0.6s ease-in-out;
+    }
+  
+    @keyframes clickEffect {
+      0% {
+        outline: 4px solid #00ff00; /* Green outline */
+        transform: scale(1.05);
+      }
+      50% {
+        outline: 4px solid #00ff00;
+        transform: scale(1.1);
+      }
+      100% {
+        outline: 4px solid #00ff00;
+        transform: scale(1.05);
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Container for the certificate section */
+    #CERTIFICATIONS {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* Flexbox to align the flip cards */
+    .flip-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    /* Style for each flip card */
+    .flip-card {
+      width: 250px;
+      height: 300px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    /* The actual flip card */
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+    }
+
+    /* Flip effect when hovered or clicked */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Front side of the card */
+    .flip-card-front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(126, 122, 122, 0.1); /* Transparent background with slight shadow */
+      backdrop-filter: blur(10px); /* Blur effect for a modern look */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(169, 163, 163, 0.3);
+      font-weight: bold;
+      font-size: 22px;
+      color: #fff;
+      text-transform: uppercase; /* Make the text uppercase for a professional look */
+    }
+
+    /* Back side of the card (the full certificate) */
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #010101; /* Dark background for better contrast */
+      color: #fff;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      overflow: auto;
+    }
+
+    /* Styling for the iframe (full certificate view) */
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+
+  </style>
+
+
+<!-- Certificate Section -->
+<section id="certifications">
+  <h2>CERTIFICATIONS</h2>
+  <div class="flip-container">
+    <!-- JS Certificate Flip Card -->
+    <div class="flip-card" onclick="openCertificate('js')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          Mastering JavaScript
+        </div>
+        <div class="flip-card-back">
+          <iframe src="file:///C:/Users/musha/OneDrive/Desktop/Desktop/WEBSITE/MyPortfolio/JS CERTIFICATE.pdf"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- AWS Certificate Flip Card -->
+    <div class="flip-card" onclick="openCertificate('aws')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          AWS Cloud Expert
+        </div>
+        <div class="flip-card-back">
+          <iframe src="file:///C:/Users/musha/OneDrive/Desktop/Desktop/WEBSITE/MyPortfolio/AWS certificate.pdf"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linux Certificate Flip Card -->
+    <div class="flip-card" onclick="openCertificate('linux')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          Linux Mastery
+        </div>
+        <div class="flip-card-back">
+          <iframe src="file:///C:/Users/musha/OneDrive/Desktop/Desktop/WEBSITE/MyPortfolio/linux.pdf"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Docker Swarm Certificate Flip Card -->
+    <div class="flip-card" onclick="openCertificate('dockerSwarm')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          Docker Swarm Specialist
+        </div>
+        <div class="flip-card-back">
+          <iframe src="DOCKER SWARM.pdf"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Docker Certificate Flip Card -->
+    <div class="flip-card" onclick="openCertificate('docker')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          Docker Fundamentals
+        </div>
+        <div class="flip-card-back">
+          <iframe src="Docker.pdf"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Java Training Certificate Flip Card -->
+    <div class="flip-card" onclick="openCertificate('javaTraining')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          Java Programming
+        </div>
+        <div class="flip-card-back">
+          <iframe src="java training.pdf"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Python Certificate Flip Card -->
+    <div class="flip-card" onclick="openCertificate('python')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          Python Developer
+        </div>
+        <div class="flip-card-back">
+          <iframe src="PYTHON.pdf"></iframe>
+        </div>
+      </div>
+    </div>
+
+<!-- CCNA -->
+<div class="flip-card" onclick="openCertificate('CCNA')">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      CCNA CERTIFIED
+    </div>
+    <div class="flip-card-back">
+      <iframe src="CCNASRWEUpdate20250220-26-47679z.pdf"></iframe>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<script>
+  // Open certificate in full view (iframe in the back of the flip card)
+  function openCertificate(certName) {
+    // You can add additional functionality here if necessary
+    alert(certName + ' certificate opened!');
+  }
+</script>
+<section id="projects">
+  <h2 class="section-title">My Projects</h2>
+  <div class="projects-container">
+    <!-- Jira Clone Project -->
+<div class="project-card jira">
+  <div class="project-details">
+    <h3>Jira Clone</h3>
+    <p class="project-description">Developed a Jira-like platform for task management and issue tracking, improving task organization efficiency by 35%.</p>
+    <ul>
+      <li>Responsive UI with React</li>
+      <li>Usability testing to enhance navigation</li>
+      <li>Seamless back-end integration, reducing bugs by 20%</li>
+    </ul>
+    <div class="project-links">
+      <a href="live-demo-link" class="btn">Live Demo</a>
+      <a href="github-link" class="btn">View Code</a>
+    </div>
+  </div>
+</div>
+
+
+    <!-- DevOps Automation Pipeline Project -->
+    <div class="project-card devops">
+      <div class="project-details">
+        <h3>DevOps Automation Pipeline</h3>
+        <p class="project-description">Engineered a scalable CI/CD pipeline using Jenkins and Docker, increasing deployment efficiency by 40%.</p>
+        <ul>
+          <li>Dockerized applications for consistent deployments</li>
+          <li>Version control through Git for full traceability</li>
+          <li>Monitored infrastructure using Prometheus and Grafana</li>
+        </ul>
+        <div class="project-links">
+          <a href="live-demo-link" class="btn">Live Demo</a>
+          <a href="github-link" class="btn">View Code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* General section styling */
+  #projects {
+    padding: 50px 0;
+    background-color: #000; /* Black background for the section */
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #00ff00; /* Green color for the section title */
+    margin-bottom: 30px;
+  }
+
+  .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* Space between project cards */
+  }
+
+  .project-card {
+    width: 500px; /* Large square size */
+    height: 500px; /* Large square size */
+    background: #222; /* Dark background */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    margin-bottom: 50px;
+  }
+
+  /* Jira Clone Image Styling */
+  .project-image {
+    width: 100%;
+    height: 70%; /* Image occupies 70% of the card height */
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image fills the area while keeping aspect ratio */
+    transition: transform 0.5s ease; /* Smooth hover zoom effect */
+  }
+
+  .project-card:hover .project-image img {
+    transform: scale(1.1); /* Zoom effect on hover */
+  }
+
+
+  /* Jira Clone Project - Background Image */
+.jira {
+  background: url('2897896.jpg') center center/cover no-repeat; /* Background image */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Ensures content starts from the bottom */
+  height: 100%; /* Fill the entire card */
+}
+  /* DevOps Project - Background Image as Transparency */
+  .devops {
+    background: url('7076118.jpg') center center/cover no-repeat; /* Background image */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Ensures content starts from the bottom */
+    height: 100%; /* Fill the entire card */
+  }
+
+  /* Project details styling */
+  .project-details {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Dark transparent background for text */
+    color: white;
+    border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .project-details h3 {
+    font-size: 2rem;
+    color: #00ff00; /* Green color for project title */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .project-card:hover .project-details h3 {
+    color: #00d700; /* Hover effect to change title color */
+  }
+
+  .project-description {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  /* Hover effect for the whole card */
+  .project-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Increase shadow for depth effect */
+  }
+
+  .project-details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .project-details ul li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  /* Project links styling */
+  .project-links {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .project-links .btn {
+    background: #00ff00;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .project-links .btn:hover {
+    background: #00d700;
+    transform: translateY(-3px); /* Slightly lift the button on hover */
+  }
+</style>
+
+
+
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <!-- FontAwesome CDN for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Contact Section */
+    #contact {
+      background-color: transparent;  /* Set background to transparent */
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+
+    #contact h2 {
+      font-size: 28px;
+      color: #4dff00;  /* Green color */
+      margin-bottom: 20px;
+    }
+
+    /* Icons and Links */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      font-size: 36px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Gmail Icon (Original color) */
+    .contact-links a.gmail {
+      color: #ea4335;  /* Original Gmail color */
+    }
+
+    .contact-links a.gmail:hover {
+      transform: scale(1.1);
+    }
+
+    /* Instagram Icon (Pink color) */
+    .contact-links a.instagram {
+      color: #d44172;  /* Instagram pink */
+    }
+
+    .contact-links a.instagram:hover {
+      transform: scale(1.1);
+    }
+
+    /* LinkedIn Icon (Blue color) */
+    .contact-links a.linkedin {
+      color: #0077b5;  /* LinkedIn blue */
+    }
+
+    .contact-links a.linkedin:hover {
+      transform: scale(1.1);
+    }
+
+    /* Resume Button */
+    .resume-btn {
+      display: inline-block;
+      background-color: #4dff00;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      background-color: #3bd400;
+    }
+
+    /* Contact Description */
+    #contact p {
+      font-size: 18px;
+      color: #4dff00;  /* Green color */
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>CONTACT ME</h2>
+
+    <!-- Social Media & Email Links -->
+    <div class="contact-links">
+      <!-- Email Link -->
+      <a href="mailto:musharafmubeen007@gmail.com" target="_blank" title="Email Me" class="gmail">
+        <i class="fas fa-envelope"></i>
+      </a>
+
+      <!-- Instagram Link -->
+      <a href="https://www.instagram.com/mushroo_official/" target="_blank" title="Follow Me on Instagram" class="instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <!-- LinkedIn Link -->
+      <a href="https://www.linkedin.com/in/musharaf-mubeen" target="_blank" title="Connect with Me on LinkedIn" class="linkedin">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <!-- Resume Download Button -->
+    <a href="mubeen_resume.pdf" class="resume-btn" download>Download My Resume</a>
+
+    <!-- Contact Description -->
+    <p>If you'd like to reach out to me, feel free to get in touch through any of the channels above!</p>
+  </section>
+
+  <!-- FontAwesome CDN for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>
+
+
+  
+  <script>
+    // Typing Animation Script
+    const roles = [
+      "Jr. DevOps Engineer",
+      "Aspiring Cloud Engineer",
+      "Software Developer"
+    ];
+
+    const typingText = document.getElementById("typing-text");
+    let roleIndex = 0;
+    let charIndex = 0;
+
+    function typeRole() {
+      typingText.textContent = "";
+      const currentRole = roles[roleIndex];
+      charIndex = 0;
+
+      function typeChar() {
+        if (charIndex < currentRole.length) {
+          typingText.textContent += currentRole.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeChar, 100); // Adjust typing speed here
+        } else {
+          roleIndex++;
+          if (roleIndex >= roles.length) {
+            roleIndex = 0; // Reset to the first role for looping
+          }
+          setTimeout(typeRole, 1000); // Wait 1 second before typing next role
+        }
+      }
+
+      typeChar();
+    }
+
+    typeRole(); // Start typing the roles
+  </script>
+</body>
+</html>
