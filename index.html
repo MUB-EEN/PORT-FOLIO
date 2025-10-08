@@ -1189,6 +1189,152 @@
 </head>
 <body>
 
+
+<!--  WORK EXPERIENCE SECTION -->
+<section id="experience">
+  <h2>WORK EXPERIENCE</h2>
+  <div class="experience-container">
+
+    <!-- 🔹 Experience 1: Doodleblue Innovations -->
+    <div class="experience-card">
+      <div class="exp-image">
+        <img src="doodleblue.jpg.jpg" alt="Doodleblue Innovations">
+      </div>
+      <div class="exp-details">
+        <h3>DevOps Engineer Trainee</h3>
+        <h4>Doodleblue Innovations, Chennai</h4>
+        <p>
+          Worked on CI/CD automation and containerized deployment pipelines, assisting in
+          DevOps implementation using Docker and Jenkins.
+        </p>
+        <div class="exp-certificate">
+          <img src="bbps_project.jpg.webp" alt="BBPS Project - Unify Technology">
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔹 Experience 2: Unify Technology -->
+    <div class="experience-card reverse">
+      <div class="exp-image">
+        <img src="bbps_project.jpg" alt="BBPS Project - Unify Technology">
+      </div>
+      <div class="exp-details">
+        <h3>Support Engineer (Deputed at NPCI)</h3>
+        <h4>Unify Technology</h4>
+        <p>
+          Supporting production-level banking infrastructure and transaction systems,
+          focusing on the BBPS payment ecosystem and monitoring application uptime.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* 🌟 Work Experience Section Styles */
+  #experience {
+    padding: 60px 20px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+  }
+
+  #experience h2 {
+    color: #00ff00;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #00ff00;
+  }
+
+  .experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .experience-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    width: 90%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.2);
+    padding: 30px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .experience-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 255, 0, 0.4);
+  }
+
+  .experience-card.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .exp-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  }
+
+  .exp-details {
+    text-align: left;
+    max-width: 600px;
+  }
+
+  .exp-details h3 {
+    color: #00ff00;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .exp-details h4 {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 15px;
+  }
+
+  .exp-details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #eee;
+  }
+
+  .exp-certificate img {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  }
+
+  /* 📱 Responsive Design */
+  @media screen and (max-width: 768px) {
+    .experience-card,
+    .experience-card.reverse {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .exp-image img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .exp-details {
+      text-align: center;
+    }
+  }
+</style>
+
   <!-- Contact Section -->
   <section id="contact">
     <h2>CONTACT ME</h2>
