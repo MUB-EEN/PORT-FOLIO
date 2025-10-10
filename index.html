@@ -327,7 +327,7 @@
 
     <!-- Right Section -->
     <div class="right">
-      <img src="Mubeen.jpg" alt="Musharaf Mubeen">
+      <img src="Mushroo.jpg" alt="Musharaf Mubeen">
     </div>
   </div>
   
@@ -350,95 +350,100 @@
 
 <style>
 
-  /* 🌟 Hero Section Layout */
+<style>
+
+/* 🌟 Hero Section Layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 80px 5%;
+  background-color: #000;
+  color: white;
+}
+
+/* Left side (text part) */
+.left {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Right side (profile image) */
+.right img {
+  width: 280px;           /* Adjusted for clean laptop view */
+  height: 280px;
+  border-radius: 50%;     /* Keeps it circular */
+  object-fit: cover;      /* Maintains proportion */
+  object-position: top center; /* Keeps your face centered */
+  box-shadow: none;       /* ❌ Removed glowing effect */
+  border: none;           /* ❌ Removed green border */
+  transition: transform 0.4s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.right img:hover {
+  transform: scale(1.03); /* Subtle hover effect (no glow) */
+}
+
+/* 🧠 Responsive for mobile */
+@media screen and (max-width: 768px) {
   .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 80px 5%;
-    background-color: #000;
-    color: white;
-  }
-  
-  /* Left side (text part) */
-  .left {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  /* Right side (profile image) */
-  .right img {
-    width: 280px;        /* 👈 adjust size here */
-    height: 280px;       /* keeps it even */
-    border-radius: 50%;  /* makes it round */
-    object-fit: cover;   /* avoids stretching */
-    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5); /* glowing effect */
-    border: 3px solid #00ff00;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  
-  .right img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(0, 255, 0, 0.7);
-  }
-  
-  /* 🧠 Responsive for mobile */
-  @media screen and (max-width: 768px) {
-    .container {
-      flex-direction: column-reverse;
-      text-align: center;
-    }
-  
-    .right img {
-      width: 200px;
-      height: 200px;
-      margin-bottom: 30px;
-    }
-  }
-  
-  /* 👇 Your existing styles continue below this */
-  #about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 20px;
-    background: transparent;
-  }
-  
-  .about-container {
-    width: 100%;
-    max-width: 800px;
-    perspective: 1000px;
-  }
-  
-  .about-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 20px;
+    flex-direction: column-reverse;
     text-align: center;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 10px 30px rgba(6, 240, 73, 0.4);
-    transition: transform 0.5s ease-in-out;
   }
-  
-  .about-card:hover {
-    transform: rotateY(5deg) rotateX(5deg);
+
+  .right img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
+    object-position: center; /* Keeps full face visible on mobile */
   }
-  
-  .about-card h2 {
-    font-size: 2rem;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
-  }
-  
-  .about-card p {
-    font-size: 1.2rem;
-    color: #f1f1f1;
-  }
-  </style>
-  
-  
+}
+
+/* 👇 Your existing styles continue below this */
+#about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: transparent;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 800px;
+  perspective: 1000px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(6, 240, 73, 0.4);
+  transition: transform 0.5s ease-in-out;
+}
+
+.about-card:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+.about-card h2 {
+  font-size: 2rem;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.about-card p {
+  font-size: 1.2rem;
+  color: #f1f1f1;
+}
+
+</style>
+
   
 
 <!-- 🌟 WORK EXPERIENCE SECTION -->
@@ -1423,7 +1428,7 @@
     </div>
 
     <!-- Resume Download Button -->
-    <a href="mubeen_resume.pdf" class="resume-btn" download>Download My Resume</a>
+    <a href="MUSHARAF_MUBEEN_RESUME.pdf" class="resume-btn" download>Download My Resume</a>
 
     <!-- Contact Description -->
     <p>If you'd like to reach out to me, feel free to get in touch through any of the channels above!</p>
