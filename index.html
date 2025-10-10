@@ -348,24 +348,71 @@
     </div>
 </section>
 
+<style>
 
+  /* 🌟 Hero Section Layout */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 80px 5%;
+    background-color: #000;
+    color: white;
+  }
   
-  <style>
+  /* Left side (text part) */
+  .left {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  /* Right side (profile image) */
+  .right img {
+    width: 280px;        /* 👈 adjust size here */
+    height: 280px;       /* keeps it even */
+    border-radius: 50%;  /* makes it round */
+    object-fit: cover;   /* avoids stretching */
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5); /* glowing effect */
+    border: 3px solid #00ff00;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .right img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.7);
+  }
+  
+  /* 🧠 Responsive for mobile */
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+  
+    .right img {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 30px;
+    }
+  }
+  
+  /* 👇 Your existing styles continue below this */
   #about {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 80px 20px;
-    background: transparent; /* Matches portfolio theme */
-}
-
-.about-container {
+    background: transparent;
+  }
+  
+  .about-container {
     width: 100%;
     max-width: 800px;
     perspective: 1000px;
-}
-
-.about-card {
+  }
+  
+  .about-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 40px;
     border-radius: 20px;
@@ -373,26 +420,26 @@
     backdrop-filter: blur(15px);
     box-shadow: 0 10px 30px rgba(6, 240, 73, 0.4);
     transition: transform 0.5s ease-in-out;
-}
-
-.about-card:hover {
+  }
+  
+  .about-card:hover {
     transform: rotateY(5deg) rotateX(5deg);
-}
-
-.about-card h2 {
+  }
+  
+  .about-card h2 {
     font-size: 2rem;
     color: #00ff00;
     text-shadow: 0 0 10px #00ff00;
-}
-
-.about-card p {
+  }
+  
+  .about-card p {
     font-size: 1.2rem;
     color: #f1f1f1;
-}
-
-
-   </style>
-
+  }
+  </style>
+  
+  
+  
 
 <!-- 🌟 WORK EXPERIENCE SECTION -->
 <section id="experience">
@@ -402,7 +449,7 @@
     <!-- 🔹 Experience 1: Doodleblue Innovations -->
     <div class="experience-card">
       <div class="exp-image">
-        <img src="doodleblue.jpg" alt="Doodleblue Innovations Logo">
+        <img src="doodleblue.jpg.jpg" alt="Doodleblue Innovations Logo">
       </div>
       <div class="exp-details">
         <h3>DevOps Engineer Trainee</h3>
