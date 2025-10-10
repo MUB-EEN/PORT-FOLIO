@@ -371,36 +371,32 @@
 
 /* Right side (profile image) */
 .right img {
-  width: 280px;           /* Adjusted for clean laptop view */
-  height: 280px;
-  border-radius: 50%;     /* Keeps it circular */
-  object-fit: cover;      /* Maintains proportion */
-  object-position: top center; /* Keeps your face centered */
-  box-shadow: none;       /* ❌ Removed glowing effect */
-  border: none;           /* ❌ Removed green border */
+  width: 350px;               /* slightly larger for more upper body */
+  height: 450px;              /* taller to show head-to-torso */
+  border-radius: 20px;        /* subtle round corners instead of full circle */
+  object-fit: cover;          /* maintains proportion */
+  object-position: top center; /* keeps full upper body visible */
+  box-shadow: none;
+  border: none;
   transition: transform 0.4s ease;
   display: block;
   margin: 0 auto;
 }
 
 .right img:hover {
-  transform: scale(1.03); /* Subtle hover effect (no glow) */
+  transform: scale(1.03);
 }
 
 /* 🧠 Responsive for mobile */
 @media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
   .right img {
-    width: 200px;
-    height: 200px;
+    width: 250px;            /* slightly smaller for mobile */
+    height: 320px;
     margin-bottom: 30px;
-    object-position: center; /* Keeps full face visible on mobile */
+    object-position: top center; /* keeps full upper body visible */
   }
 }
+
 
 /* 👇 Your existing styles continue below this */
 #about {
